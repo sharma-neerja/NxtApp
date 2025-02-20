@@ -137,8 +137,4 @@ app.get('/', (req, res) => {
     res.send('Hello')
 });
 
-app.listen(port, () => {
-    console.log('listining on port', port);
-});
-
 module.exports = app;
