@@ -99,7 +99,7 @@ app.post('/post', authenticateUser, async(req, res) => {
 });
 
 //to show a post
-app.get('/post/:id', authenticateUser, async (req, res) => {
+app.get('/post/:id', async (req, res) => {
   let {id} = req.params;
   let post = await Post.findById(id);
   res.send(post);
@@ -120,7 +120,7 @@ app.get('/', async (req, res) => {
 })
 
 //to update a post
-app.post('/post/update/:id', async (req, res) => {
+app.post('/post/update/:id', authenticateUser, async (req, res) => {
   try{
     let {id} = req.params;
     let {image_url, title,} = req.body;
