@@ -114,13 +114,13 @@ app.get('/post/delete/:id', authenticateUser, async (req, res) => {
 });
 
 //to show all posts
-app.get('/', authenticateUser, async (req, res) => {
+app.get('/', async (req, res) => {
   let allPosts = await Post.find();
     res.send(allPosts)
 })
 
 //to update a post
-app.post('/post/update/:id', authenticateUser, async (req, res) => {
+app.post('/post/update/:id', async (req, res) => {
   try{
     let {id} = req.params;
     let {image_url, title,} = req.body;
