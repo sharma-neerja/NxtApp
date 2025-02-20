@@ -1,9 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const app = express()
-const port = process.env.port;
-const mongoDB_url = process.env.atlus_url;
-const secret = process.env.sec;
 const {authenticateUser} = require('./middlewares');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
@@ -20,7 +17,7 @@ main().then(() => {
   .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(mongoDB_url);
+  await mongoose.connect(process.env.ATLUS_URL);
 };
 
 //to create an owner
