@@ -114,10 +114,10 @@ app.get('/post/delete/:id', authenticateUser, async (req, res) => {
 });
 
 //to show all posts
-app.get('/', async (req, res) => {
+app.get('/post', async (req, res) => {
   let allPosts = await Post.find();
     res.send(allPosts)
-})
+});
 
 //to update a post
 app.post('/post/update/:id', authenticateUser, async (req, res) => {
@@ -130,7 +130,12 @@ app.post('/post/update/:id', authenticateUser, async (req, res) => {
   } catch(error) {
     console.log(error)
   }
-  })
+  });
+
+//to test
+app.get('/', (req, res) => {
+    res.send('Hello')
+});
 
 app.listen(port, () => {
     console.log('listining on port', port);
